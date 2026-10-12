@@ -1,6 +1,6 @@
 [package]
 name = "jdevon/observable-value"
-description = "A typed value you can read, set and observe, with disconnect functions instead of connection objects"
+description = "A typed value you can read, set and observe."
 version = "0.1.0"
 license = "MIT"
 authors = ["JDevon"]
