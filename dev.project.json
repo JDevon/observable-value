@@ -1,0 +1,14 @@
+{
+	"name": "ObservableValueDev",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Packages": {
+				"$path": "Packages",
+				"ObservableValue": {
+					"$path": "src"
+				}
+			}
+		}
+	}
+}
