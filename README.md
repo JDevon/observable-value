@@ -1,13 +1,22 @@
-# ObservableValue
+<!-- Links -->
 
-[![License](https://img.shields.io/github/license/JDevon/observable-value)](https://github.com/JDevon/observable-value/blob/main/LICENSE)
+[observable-value/releases]: https://github.com/JDevon/observable-value/releases/latest
+[observable-value/wally]: https://wally.run/package/jdevon/observable-value
+
+<!-- Badges -->
+
+[badges/github]: https://raw.githubusercontent.com/gist/cxmeel/0dbc95191f239b631c3874f4ccf114e2/raw/github.svg
+[badges/wally]: https://raw.githubusercontent.com/gist/cxmeel/0dbc95191f239b631c3874f4ccf114e2/raw/wally.svg
+
+# ObservableValue
 
 A typed value you can read, set, and observe. Adding a listener returns a cleanup function that's safe to call more than once.
 
+Full API reference at [jdevon.github.io/observable-value](https://jdevon.github.io/observable-value/).
+
 ## Install
 
-[![GitHub release](https://img.shields.io/github/v/release/JDevon/observable-value)](https://github.com/JDevon/observable-value/releases/latest)
-[![Wally](https://img.shields.io/badge/wally-jdevon%2Fobservable--value-ad4646)](https://wally.run/package/jdevon/observable-value)
+[![badges/github]][observable-value/releases] [![badges/wally]][observable-value/wally]
 
 Install with [Wally](https://wally.run) by adding it to your `wally.toml`:
 
@@ -47,9 +56,13 @@ print(`defeated at {finalHealth} health`)
 
 Creates an ObservableValue holding `initialValue`.
 
+---
+
 ### `observable:get(): T`
 
 Returns the current value.
+
+---
 
 ### `observable:set(newValue: T)`
 
@@ -57,26 +70,38 @@ Sets the value. `onChanged` fires if the value changed, and `onSet` fires on eve
 
 **Setting a table always fires `onChanged`**, even if it's the same table, so a table you edited in place still notifies listeners when you `set` it.
 
+---
+
 ### `observable:update(update: (T) -> T): T`
 
 Sets the value to `update(currentValue)` and returns the new value.
+
+---
 
 ### `observable.version: number`
 
 Increases each time the value changes. It identifies a value even when a table was changed in place, which makes
 it a useful dependency for caches, or for React's `useMemo` / `useEffect`.
 
+---
+
 ### `observable:onChanged(callback: (newValue: T, oldValue: T) -> ()): Disconnect`
 
 Calls `callback` whenever the value changes.
+
+---
 
 ### `observable:onSet(callback: (newValue: T) -> ()): Disconnect`
 
 Calls `callback` on every `set`, including ones that don't change the value.
 
+---
+
 ### `observable:observe(callback: (newValue: T, oldValue: T?) -> ()): Disconnect`
 
 Calls `callback` straight away with the current value (`oldValue` is `nil`), then on every change.
+
+---
 
 ### `observable:promiseValue(predicate: (T) -> (boolean, R)): TypedPromise<R>`
 
@@ -90,9 +115,13 @@ loaded:promiseValue(function(isLoaded)
 end):expect() -- yields until loaded is true
 ```
 
+---
+
 ### `observable:Destroy()` / `observable:destroy()`
 
 Disconnects every listener. It works as a cleanup task in Maid, Janitor and Trove.
+
+---
 
 ### `Disconnect`
 
