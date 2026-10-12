@@ -1,6 +1,6 @@
 # ObservableValue
 
-[![License](https://img.shields.io/github/license/JDevon/observable-value)](LICENSE)
+[![License](https://img.shields.io/github/license/JDevon/observable-value)](https://github.com/JDevon/observable-value/blob/main/LICENSE)
 
 A typed value you can read, set, and observe. Adding a listener returns a cleanup function that's safe to call more than once.
 
