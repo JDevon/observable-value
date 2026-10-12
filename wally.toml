@@ -17,6 +17,8 @@ exclude = [
 	"wally.lock",
 	"build",
 	".moonwave",
+	"**/.DS_Store",
+	".github",
 ]
 
 [dependencies]

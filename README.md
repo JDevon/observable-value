@@ -14,6 +14,8 @@ A typed value you can read, set, and observe. Adding a listener returns a cleanu
 
 Full API reference at [jdevon.github.io/observable-value](https://jdevon.github.io/observable-value/).
 
+Using React? See [ReactObservableValue](https://github.com/JDevon/react-observable-value) for hooks.
+
 ## Install
 
 [![badges/github]][observable-value/releases] [![badges/wally]][observable-value/wally]
