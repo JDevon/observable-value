@@ -35,19 +35,19 @@ local ObservableValue = require(ReplicatedStorage.Packages.ObservableValue)
 local health = ObservableValue.new(100)
 
 local cleanup = health:onChanged(function(newHealth, oldHealth)
-	print(`health went from {oldHealth} to {newHealth}`)
+    print(`health went from {oldHealth} to {newHealth}`)
 end)
 
 health:set(80) --> health went from 100 to 80
 health:update(function(current)
-	return current - 10
+    return current - 10
 end) --> health went from 80 to 70
 
 cleanup()
 
 -- yields until health drops to 0 or below, then continues with the final value
 local finalHealth = health:promiseValue(function(current)
-	return current <= 0, current
+    return current <= 0, current
 end):expect()
 print(`defeated at {finalHealth} health`)
 ```
